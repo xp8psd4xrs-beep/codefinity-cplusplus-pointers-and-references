@@ -1,0 +1,7 @@
+#include <iostream>
+
+int main()
+{
+    int* p_nullptr = nullptr;
+    std::cout << p_nullptr;
+}
