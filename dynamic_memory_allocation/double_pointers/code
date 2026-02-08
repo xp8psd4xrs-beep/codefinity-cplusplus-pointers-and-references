@@ -1,0 +1,26 @@
+#include <iostream>
+
+void createAndPrint2DArray(int rows, int columns) {
+    int** twoDArray = new int*[rows];
+    for (int row = 0; row < rows; row++)
+        twoDArray[row] = new int[columns];
+
+    for (int row = 0; row < rows; row++) {
+        for (int column = 0; column < columns; column++) {
+            twoDArray[row][column] = row * columns + column;
+            std::cout << twoDArray[row][column] << ' ';
+        }
+        std::cout << std::endl;
+    }
+
+    for (int row = 0; row < rows; row++)
+        delete[] twoDArray[row];
+    delete[] twoDArray;
+}
+
+int main() {
+    int rows = 3;
+    int columns = 5;
+    createAndPrint2DArray(rows, columns);
+    return 0;
+}
