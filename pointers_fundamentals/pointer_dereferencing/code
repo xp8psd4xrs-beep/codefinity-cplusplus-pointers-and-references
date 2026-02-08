@@ -1,0 +1,30 @@
+#include <iostream>
+
+// Function to normalize a sensor reading using a pointer
+void normalizeSensor(float* p_sensor) {
+    if (*p_sensor < 0) {
+        *p_sensor = 0;
+    } else if (*p_sensor > 100) {
+        *p_sensor = 100;
+    }
+}
+
+int main() {
+    float sensor1 = -5;
+    float sensor2 = 150;
+    float sensor3 = 75;
+
+    std::cout << "Sensor1 before normalization: " << sensor1 << std::endl;
+    normalizeSensor(&sensor1);
+    std::cout << "Sensor1 after normalization: " << sensor1 << std::endl << std::endl;
+
+    std::cout << "Sensor2 before normalization: " << sensor2 << std::endl;
+    normalizeSensor(&sensor2);
+    std::cout << "Sensor2 after normalization: " << sensor2 << std::endl << std::endl;
+
+    std::cout << "Sensor3 before normalization: " << sensor3 << std::endl;
+    normalizeSensor(&sensor3);
+    std::cout << "Sensor3 after normalization: " << sensor3 << std::endl;
+
+    return 0;
+}
