@@ -1,0 +1,17 @@
+#include <iostream>
+
+// Function to access the second variable via pointer arithmetic
+int getValueByPointerOffset(int* p_start, int* p_target) {
+    int offset = p_target - p_start;
+    p_start += offset;
+    return *p_start;
+}
+
+int main() {
+    int firstVariable = 10;
+    int secondVariable = 20;
+
+    std::cout << getValueByPointerOffset(&firstVariable, &secondVariable) << std::endl;
+
+    return 0;
+}
