@@ -1,0 +1,24 @@
+#include <iostream>
+
+// Function to update balance using a pointer
+bool updateBalance(double* p_balance, double amount) {
+    if (amount < 0 && *p_balance + amount < 0) {
+        return false; // not enough funds
+    }
+    *p_balance = *p_balance + amount;
+    return true;
+}
+
+int main() {
+    double balance = 1000.0;
+
+    updateBalance(&balance, 250.0); // deposit
+
+    if (!updateBalance(&balance, -1500.0)) {
+        std::cout << "Transaction failed: insufficient funds." << std::endl;
+    }
+
+    std::cout << "Final balance: " << balance << std::endl;
+
+    return 0;
+}
